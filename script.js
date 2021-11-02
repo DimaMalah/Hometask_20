@@ -24,13 +24,19 @@
 	const a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 	const lastindexOf = ((arr, item, from = (arr.length - 1)) => {
-		for (let i = from; i < arr.length; i--) {
-			if (arr[i] === item) return i
+		if (from >= 0) {
+			for (let i = from; i > 0; i--) {
+				if (arr[i] === item) return i
+			}
+		} else {
+			for (let i = arr.length + from; i > 0; i--) {
+				if (arr[i] === item) return i
+			}
 		}
 		return -1
 	})
 	console.log("-----lastIndexOf-----");
-	console.log(lastindexOf(a, 2));
+	console.log(lastindexOf(a, 5, -6));
 }
 //includes----------------------------------------
 {
